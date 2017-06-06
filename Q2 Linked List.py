@@ -1,15 +1,37 @@
 
 '''
-Returns the Kth to last value in a linked list.
+Returns the Kth to last value in a linked list l.
 There was a discussion on Slack and
-apparently we can expect k and l
-to be valid input.
+apparently we can expect l to actually be a 
+linked list and k to be smaller than len(l).
+So we don't have to do input handling.
 ______________________________________________
 Idea: Follow the links while keeping the last
 k+1 values cached. 
 So when we hit the end (A node pointing to None)
 the value that we are looking for is the 
 "oldest" value in the cache
+______________________________________________
+COMPLEXITY:
+A) SPACE:
+I might be missing something, but I think this 
+should just be k since thats how much we cache
+at any point.
+B) TIME:
+Let L be the length of the linked list.
+We will have to perform L "cache.add"s. The
+add-function might (in a best case scenario) 
+only have to append something( if the capacity
+is not yet used up). But most of the time
+(worst case) it will have to append (O(1)) and
+delete the first item (O(K)).
+So I think the complexity should on average/
+worst case be O(L*K). 
+(Best Case: O(L). This happens if K=L. But then
+our cache will contain all elements in the 
+linked list, so our space complexity will be 
+at its worst)
+But it does feel like I'm missing something :D
 ''' 
 def getKthToLast(l, k):
     cache = Cache(k+1)

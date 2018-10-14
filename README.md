@@ -1,2 +1,3 @@
-# CodeU-Assignment-1
-I answered the first question in c++. The rest will be in Python(3).
+This is a repository used for CodeU assignments.
+
+I answered the first question in C++. The rest will be in Python.
